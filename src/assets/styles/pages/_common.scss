@@ -1,0 +1,29 @@
+/* Comon styles for html and body for overall application */
+html,
+body {
+  height: 100%;
+  padding-top: 2rem;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// spinner
+.app-spinner{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background-color: $lightBlack;
+}

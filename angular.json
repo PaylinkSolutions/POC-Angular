@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "poc"
+    }
+  },
+  "defaultProject": "poc",
+  "cli": {
+    "analytics": "47d4d8a9-838b-4e63-9142-47db2bba7025"
+  }
 }

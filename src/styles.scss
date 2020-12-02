@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+// Vendor Styles
+@import "./assets/styles/vendor/custom-bootstrap";
+@import "./assets/styles/vendor/custom-vendor";
+
+// Helper Styles
+@import "./assets/styles/helper/variables";
+@import "./assets/styles/helper/mixin";
+@import "./assets/styles/helper/function";
+
+// Page Styles
+@import "./assets/styles/pages/common";
+@import "./assets/styles/pages/buttons";
