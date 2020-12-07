@@ -1,14 +1,7 @@
 <div class="container bg-grey pt-5">
-  <div>
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Selected {{selectedSubsidary}} Subsidary</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem *ngFor="let subsidary of subsidaryList" (click)="storeSubsidarySelection(subsidary);">{{subsidary}}</button>
-      </div>
-    </div>
-  </div>
   <div class="row">
     <div class="col-sm-8">
+      <app-company-selection (storeCompanySubsidary)="storeSubsidarySelection($event)"></app-company-selection>
       <div [innerHTML]="directusData | staticContent:'left-block'"></div>
       <div [innerHTML]="directusData | staticContent:'left-block-2'"></div>
     </div>

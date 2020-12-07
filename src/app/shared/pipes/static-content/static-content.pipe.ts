@@ -10,7 +10,7 @@ export class StaticContentPipe implements PipeTransform {
     return directusList && directusList.length
       ? directusList.find(
           (directus: Directus): boolean => directus.block_name === label
-        ).block_content
+        )?.block_content
       : '';
   }
 }

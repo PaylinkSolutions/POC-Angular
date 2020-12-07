@@ -25,6 +25,7 @@ const routes: Routes = [
     path: 'home',
     canActivate: [AuthGuard],
     data: { preload: false },
+    resolve: { directusData: DirecutsResolverService },
     loadChildren: () =>
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },

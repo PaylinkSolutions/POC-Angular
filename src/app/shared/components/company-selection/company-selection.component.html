@@ -1,0 +1,21 @@
+<div class="d-flex mb-4">
+  <div>
+    <p> Select Company:</p>
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>{{selectedCompany}}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+        <button ngbDropdownItem *ngFor="let comapny of companyList" (click)="setCompanySelection(comapny);">{{comapny}}</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ml-3">
+    <p> Select Subsidary:</p>
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic3" ngbDropdownToggle>{{selectedSubsidary}}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+        <button ngbDropdownItem *ngFor="let subsidary of subsidaryList" (click)="setSubsidarySelection(subsidary);">{{subsidary}}</button>
+      </div>
+    </div>
+  </div>
+</div>

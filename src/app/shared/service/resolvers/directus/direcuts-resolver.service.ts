@@ -8,21 +8,24 @@ import {
 import { Observable, of } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
 
-import { environment } from 'src/environments/environment';
-import { DirecutsService } from '../../services/directus/direcuts.service';
 import { Directus } from 'src/app/shared/models/directus.model';
+import { DirecutsService } from '../../services/directus/direcuts.service';
+import { UtilsService } from '../../services/utils/utils.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DirecutsResolverService implements Resolve<Directus[]> {
-  constructor(private direcutsService: DirecutsService) {}
+  constructor(
+    private direcutsService: DirecutsService,
+    private utilsService: UtilsService
+  ) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Directus[] | import('rxjs').Observable<Directus[]> | Promise<Directus[]> {
-    const pageName = state.url.replace('/', '');
+    const pageName = state.url.split('/').pop();
 
     return this.direcutsService.directusList.length
       ? this.filterStaticContent$(pageName)
@@ -36,9 +39,7 @@ export class DirecutsResolverService implements Resolve<Directus[]> {
    */
   filterStaticContent$(pageName: string): Directus[] {
     return this.direcutsService.directusList.filter(
-      (directus: Directus): boolean =>
-        directus.page_name === pageName &&
-        directus.environment === environment.name
+      (directus: Directus): boolean => directus.page_name === pageName
     );
   }
 
@@ -48,7 +49,7 @@ export class DirecutsResolverService implements Resolve<Directus[]> {
    * @returns directus list$ by page
    */
   getDirectusList$(pageName: string): Observable<Directus[]> {
-    return this.direcutsService.getStaticDirectusContent$().pipe(
+    return this.direcutsService.getStaticDirectusContent$(pageName).pipe(
       map(
         ({
           embarkStaticContent$,

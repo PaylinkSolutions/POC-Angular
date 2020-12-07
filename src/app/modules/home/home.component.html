@@ -1,1 +1,7 @@
-<app-product-list [products]="productList"></app-product-list>
+<button class="btn btn-primary" [routerLink]="['/home/my-finances']">
+  Go to My Finance Page
+</button>
+
+<div [innerHTML]="directusData | staticContent: 'left-block'"></div>
+<div [innerHTML]="directusData | staticContent: 'right-info'"></div>
+<div [innerHTML]="directusData | staticContent: 'bottom-banner'"></div>

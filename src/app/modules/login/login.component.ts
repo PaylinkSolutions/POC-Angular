@@ -17,20 +17,7 @@ import { DirecutsResolverService } from 'src/app/shared/service/resolvers/direct
 export class LoginComponent implements OnInit, OnDestroy {
   directusData: Directus[];
   errorMessage: string;
-  selectedSubsidary: string;
   directusSubscription: Subscription = new Subscription();
-  subsidaryList = [
-    'embark',
-    'jasper',
-    'rosolite',
-    'heliodor',
-    'melanite',
-    'topaz',
-    'rosinca',
-    'siberite',
-    'zephyr',
-    'morag',
-  ];
 
   constructor(
     private authService: AuthService,
@@ -42,7 +29,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.directusData = this.route.snapshot.data['directusData'];
-    this.selectedSubsidary = this.direcutsService.selectedSubsidaryName;
   }
 
   /**
@@ -51,8 +37,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    * @param subsidaryName selected subsidary name
    */
   storeSubsidarySelection(subsidaryName: string): void {
-    this.selectedSubsidary = subsidaryName;
-    this.direcutsService.selectedSubsidaryName = this.selectedSubsidary;
+    this.direcutsService.selectedSubsidaryName = subsidaryName;
     this.directusSubscription = this.direcutsResolverService
       .getDirectusList$('login')
       .subscribe((data: Directus[]): void => {

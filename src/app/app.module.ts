@@ -1,6 +1,7 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -11,10 +12,9 @@ import { LoginComponent } from './modules/login/login.component';
 import { SignupComponent } from './modules/login/signup/signup.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { HeaderComponent } from './shared/components/header/header.component';
-import { StaticContentPipe } from './shared/service/pipes/static-content/static-content.pipe';
 import { AppInterceptor } from './core/interceptors/app.interceptor';
 import { GlobalErrorHandler } from './core/errors/global-error-handler.service';
-
+import { CompanySelectionComponent } from './shared/components/company-selection/company-selection.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { GlobalErrorHandler } from './core/errors/global-error-handler.service';
     LoginComponent,
     HeaderComponent,
     SignupComponent,
-    StaticContentPipe,
+
+    CompanySelectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +31,7 @@ import { GlobalErrorHandler } from './core/errors/global-error-handler.service';
     NgbModule,
     HttpClientModule,
     HomeModule,
+    FormsModule,
     SharedModule,
     // InMemoryWebApiModule.forRoot(ProductData, { delay: 2000 }),
   ],

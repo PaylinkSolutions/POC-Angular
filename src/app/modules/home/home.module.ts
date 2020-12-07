@@ -6,20 +6,28 @@ import { ProductResolverService } from 'src/app/modules/home/service/product-res
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { SharedModule } from '../shared/shared.module';
+import { MyFinanceComponent } from './my-finance/my-finance.component';
+import { DirecutsResolverService } from 'src/app/shared/service/resolvers/directus/direcuts-resolver.service';
 
 @NgModule({
-  declarations: [HomeComponent, ProductListComponent, ProductDetailComponent],
+  declarations: [
+    HomeComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    MyFinanceComponent,
+  ],
   imports: [
     SharedModule,
     RouterModule.forChild([
       {
         path: '',
         component: HomeComponent,
-        resolve: { productData: ProductResolverService },
+        resolve: { directusData: DirecutsResolverService },
       },
       {
-        path: ':id',
-        component: ProductDetailComponent,
+        path: 'my-finances',
+        component: MyFinanceComponent,
+        resolve: { directusData: DirecutsResolverService },
       },
     ]),
   ],
