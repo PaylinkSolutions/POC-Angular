@@ -1,5 +1,6 @@
 FROM nginx:alpine
 
-COPY dist /usr/share/nginx/html
+RUN rm -f /usr/share/nginx/html/*
+COPY dist/poc /usr/share/nginx/html
 
 CMD ["nginx", "-g", "daemon off;"]
