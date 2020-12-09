@@ -10,6 +10,6 @@ export class APIService {
   productsUrl = 'api/products';
 
   directusEmbarkURL = 'https://assets.paylinksolutions.co.uk/items/'; // embark_content
-  directusCompanyURL = 'https://directus.paylinksolutions.co.uk/items/'; // company_content
-  directusSubsiderayURL = 'https://directus.paylinksolutions.co.uk/items/'; // subsidary_content
+  directusCompanyURL = 'https://assets.paylinksolutions.co.uk/items/'; // company_content
+  directusSubsiderayURL = 'https://assets.paylinksolutions.co.uk/items/'; // subsidary_content
 }
