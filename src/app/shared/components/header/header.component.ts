@@ -8,10 +8,8 @@ import { AuthService } from '../../service/auth/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit(): void {}
 
   get isLoggedIn(): boolean {
     return this.authService.isLoggedIn;

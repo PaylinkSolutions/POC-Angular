@@ -9,6 +9,7 @@ import { ContactUsComponent } from './shared/components/contact-us/contact-us.co
 import { SignupComponent } from './modules/login/signup/signup.component';
 import { ProductResolverService } from './modules/home/service/product-resolver/product-resolver.service';
 import { DirecutsResolverService } from './shared/service/resolvers/directus/direcuts-resolver.service';
+import { HomeModule } from './modules/home/home.module';
 
 const routes: Routes = [
   {
@@ -26,8 +27,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { preload: false },
     resolve: { directusData: DirecutsResolverService },
-    loadChildren: () =>
-      import('./modules/home/home.module').then((m) => m.HomeModule),
+    loadChildren: (): Promise<HomeModule> =>
+      import('./modules/home/home.module').then(
+        (m): HomeModule => m.HomeModule
+      ),
   },
   { path: 'contact-us', component: ContactUsComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },

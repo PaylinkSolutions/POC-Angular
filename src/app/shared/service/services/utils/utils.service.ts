@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UtilsService {
-  constructor() {}
-
   /**
    * Param converts objects into query string
    * @param params takes any list

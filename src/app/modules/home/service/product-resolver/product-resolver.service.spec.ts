@@ -2,10 +2,10 @@ import { TestBed } from '@angular/core/testing';
 
 import { ProductResolverService } from './product-resolver.service';
 
-describe('ProductResolverService', () => {
+describe('ProductResolverService', (): void => {
   let service: ProductResolverService;
 
-  beforeEach(() => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ProductResolverService);
   });

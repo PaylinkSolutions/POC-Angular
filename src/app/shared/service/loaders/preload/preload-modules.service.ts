@@ -7,6 +7,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class PreloadModulesService implements PreloadingStrategy {
+  // tslint:disable-next-line: rxjs-finnish
   preload(route: Route, fn: () => Observable<any>): Observable<any> {
     if (route.data && route.data['preload']) {
       return fn();

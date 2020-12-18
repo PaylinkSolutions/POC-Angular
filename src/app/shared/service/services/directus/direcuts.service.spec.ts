@@ -2,15 +2,15 @@ import { TestBed } from '@angular/core/testing';
 
 import { DirecutsService } from './direcuts.service';
 
-describe('DirecutsService', () => {
+describe('DirecutsService', (): void => {
   let service: DirecutsService;
 
-  beforeEach(() => {
+  beforeEach((): void => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(DirecutsService);
   });
 
-  xit('should be created', () => {
+  xit('should be created', (): void => {
     expect(service).toBeTruthy();
   });
 });
